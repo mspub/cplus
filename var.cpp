@@ -2,7 +2,7 @@
 using namespace std;
  
 int data=10;
-void func()
+void func() //전역함수
 {
     cout<<"전역 함수 func 호출\n";
 }
@@ -19,12 +19,12 @@ namespace X
 int main()
 {
     using namespace X;
-    int data=30;
+    int data=30; //지역변수 
     cout<<"data="<<data<<"\n"; //지역변수
     cout<<"data="<<X::data<<"\n";//네임스페이스내 전역변수
     cout<<"data="<<::data<<"\n";  //전역변수
      
-   X::func();
-   ::func();
+   X::func(); // 네임스페이스에 있는 함수 호출
+   ::func();  //전역함수 호출
    return 0;
 }
