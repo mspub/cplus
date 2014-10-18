@@ -25,7 +25,28 @@ int main()
 	RemoveAll();
 	return 0;
 }
-int FindWords(const string & s){return 0;}
-int CountWords(const string & s){return 0;}
-void ShowWords(){}
-void RemoveAll(){}
+int FindWords(const string & s){
+	for(int i=0;i<words.size();i++)
+		if(words[i]->str==s) return i;
+	return -1;
+}
+int CountWords(const string & s){
+	int index=FindWords(s);
+	if(index==-1){
+		WORD *pWord=new WORD;
+		pWord->str=s;
+		pWord->count=1;
+		words.push_back(pWord);
+	}else{
+		(words[index]->count)++;
+	}
+	return 0;
+}
+void ShowWords(){
+	for(int i=0;i<words.size();i++)
+		cout<<words[i]->str<<":"<<words[i]->count<<"¹ø\n";
+}
+void RemoveAll(){
+	for(int i=0;i<words.size();i++)
+		delete words[i];
+}
