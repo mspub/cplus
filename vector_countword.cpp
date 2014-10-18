@@ -18,6 +18,11 @@ void RemoveAll();
 
 int main()
 {
+	cout<<"문자열을 입력하세요. ctrl+z (종료)\n";
+	string buffer;
+	while(cin>>buffer) CountWords(buffer);
+	ShowWords();
+	RemoveAll();
 	return 0;
 }
 int FindWords(const string & s){return 0;}
